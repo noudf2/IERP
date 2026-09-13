@@ -1,0 +1,1151 @@
+/* =========================================
+   IERP — SEZON 01
+   KOLEKCJONERSKI KLASTER
+========================================= */
+
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: #ffffff;
+
+    background: #03050d;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   TŁO
+========================================= */
+
+.background {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -10;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0, 130, 255, 0.18),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 25%,
+            rgba(145, 40, 255, 0.20),
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(50, 60, 255, 0.12),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #02040b,
+            #070a1c 45%,
+            #10051d
+        );
+}
+
+
+/* SIATKA */
+
+.background::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(80, 120, 255, 0.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(80, 120, 255, 0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+}
+
+
+/* =========================================
+   GŁÓWNA STRONA
+========================================= */
+
+.season-page {
+    width: min(1500px, 94%);
+
+    margin: auto;
+
+    padding:
+        35px
+        0
+        50px;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.season-header {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 40px;
+
+    min-height: 115px;
+}
+
+
+/* POWRÓT */
+
+.back-button {
+    position: absolute;
+
+    left: 0;
+    top: 15px;
+
+    padding:
+        12px
+        20px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    border:
+        1px solid
+        rgba(75, 155, 255, 0.45);
+
+    border-radius: 7px;
+
+    background:
+        rgba(8, 14, 38, 0.8);
+
+    transition:
+        0.3s ease;
+}
+
+
+.back-button:hover {
+    transform: translateX(-5px);
+
+    border-color: #55b9ff;
+
+    box-shadow:
+        0 0 15px
+        rgba(30, 150, 255, 0.45);
+}
+
+
+/* TYTUŁ */
+
+.season-title {
+    text-align: center;
+}
+
+
+.small-title {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #6e9dff;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+}
+
+
+.season-title h1 {
+    font-size:
+        clamp(
+            38px,
+            6vw,
+            70px
+        );
+
+    font-weight: 950;
+
+    letter-spacing: 8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #42baff,
+            #765dff,
+            #c35cff,
+            #42baff
+        );
+
+    background-size: 250% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation:
+        titleGlow 6s linear infinite;
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(70, 140, 255, 0.3)
+        );
+}
+
+
+.season-title p {
+    margin-top: 5px;
+
+    color: #a5afca;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 5px;
+}
+
+
+/* =========================================
+   KLASTER
+========================================= */
+
+.binder {
+    position: relative;
+
+    width: 100%;
+
+    padding:
+        18px
+        20px
+        22px;
+
+    border:
+        1px solid
+        rgba(100, 140, 255, 0.4);
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b1530,
+            #080d20 45%,
+            #120b29
+        );
+
+    box-shadow:
+
+        0 30px 70px
+        rgba(0, 0, 0, 0.65),
+
+        0 0 45px
+        rgba(60, 80, 255, 0.12),
+
+        inset
+        0 0 50px
+        rgba(80, 70, 255, 0.05);
+}
+
+
+/* =========================================
+   GÓRA
+========================================= */
+
+.binder-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding:
+        5px
+        5px
+        15px;
+
+    color: #7183ad;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+
+.page-counter {
+    color: #8c6cff;
+}
+
+
+/* =========================================
+   ROZKŁADÓWKA
+========================================= */
+
+.spread {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        28px
+        minmax(0, 1fr);
+
+    min-height: 650px;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            #101a35 0%,
+            #0d142b 48%,
+            #090f25 52%,
+            #101a35 100%
+        );
+
+    box-shadow:
+        inset 0 0 50px
+        rgba(0, 0, 0, 0.5);
+}
+
+
+/* =========================================
+   STRONA KLASTRA
+========================================= */
+
+.binder-page {
+    position: relative;
+
+    padding:
+        25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(22, 34, 67, 0.94),
+            rgba(9, 17, 39, 0.97)
+        );
+}
+
+
+.left-page {
+    border-radius:
+        10px
+        0
+        0
+        10px;
+
+    box-shadow:
+        inset
+        -15px 0 30px
+        rgba(0, 0, 0, 0.15);
+}
+
+
+.right-page {
+    border-radius:
+        0
+        10px
+        10px
+        0;
+
+    box-shadow:
+        inset
+        15px 0 30px
+        rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================
+   NAGŁÓWEK STRONY
+========================================= */
+
+.page-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-bottom: 13px;
+
+    margin-bottom: 20px;
+
+    border-bottom:
+        1px solid
+        rgba(90, 140, 255, 0.18);
+
+    color: #7fa8e8;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   SIATKA KART
+========================================= */
+
+.card-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    grid-template-rows:
+        repeat(3, 1fr);
+
+    gap: 17px;
+
+    height: calc(100% - 45px);
+}
+
+
+/* =========================================
+   SLOT
+========================================= */
+
+.card-slot {
+    position: relative;
+
+    min-height: 155px;
+
+    padding: 7px;
+
+    border:
+        1px solid
+        rgba(100, 145, 230, 0.2);
+
+    border-radius: 9px;
+
+    background:
+        rgba(4, 8, 22, 0.45);
+
+    box-shadow:
+        inset 0 0 18px
+        rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.card-slot:hover {
+    transform: translateY(-4px);
+
+    border-color:
+        rgba(100, 170, 255, 0.6);
+
+    box-shadow:
+
+        0 8px 20px
+        rgba(0, 0, 0, 0.35),
+
+        0 0 18px
+        rgba(60, 120, 255, 0.12);
+}
+
+
+/* NUMER SLOTU */
+
+.slot-number {
+    position: absolute;
+
+    top: 8px;
+    right: 9px;
+
+    z-index: 3;
+
+    color: #63769f;
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   PUSTA KARTA
+========================================= */
+
+.empty-card {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 140px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 6px;
+
+    border:
+        1px solid
+        rgba(95, 130, 220, 0.18);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(80, 90, 200, 0.09),
+            transparent 65%
+        ),
+
+        linear-gradient(
+            145deg,
+            rgba(15, 24, 52, 0.85),
+            rgba(5, 9, 25, 0.95)
+        );
+}
+
+
+/* ŚWIATŁO W KARCIE */
+
+.empty-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(80, 120, 255, 0.08);
+
+    filter: blur(20px);
+}
+
+
+.empty-card span {
+    position: relative;
+
+    color: rgba(105, 130, 190, 0.4);
+
+    font-size: 30px;
+
+    font-weight: 200;
+
+    transition:
+        0.3s ease;
+}
+
+
+.card-slot:hover .empty-card span {
+    color: rgba(115, 170, 255, 0.7);
+
+    text-shadow:
+        0 0 15px
+        rgba(80, 150, 255, 0.5);
+}
+
+
+/* =========================================
+   ŚRODEK KLASTRA
+========================================= */
+
+.binder-spine {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+            90deg,
+            #05091a,
+            #121b3c,
+            #05091a
+        );
+
+    box-shadow:
+        inset
+        0 0 15px
+        rgba(0, 0, 0, 0.8),
+
+        0 0 12px
+        rgba(0, 0, 0, 0.5);
+
+    z-index: 5;
+}
+
+
+.spine-line {
+    width: 2px;
+
+    height: 40%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #526eff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 8px
+        rgba(70, 120, 255, 0.5);
+}
+
+
+.spine-logo {
+    margin: 15px 0;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(100, 150, 255, 0.4);
+
+    border-radius: 50%;
+
+    color: #60baff;
+
+    background:
+        #070d22;
+
+    font-size: 18px;
+
+    box-shadow:
+        0 0 15px
+        rgba(50, 130, 255, 0.3);
+}
+
+
+/* =========================================
+   DÓŁ KLASTRA
+========================================= */
+
+.binder-bottom {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding:
+        14px
+        5px
+        0;
+
+    color: #53678f;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   NAWIGACJA
+========================================= */
+
+.navigation {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 35px;
+
+    margin-top: 30px;
+}
+
+
+/* PRZYCISKI */
+
+.nav-button {
+    padding:
+        12px
+        22px;
+
+    color: #ffffff;
+
+    border:
+        1px solid
+        rgba(80, 140, 255, 0.4);
+
+    border-radius: 7px;
+
+    background:
+        rgba(9, 15, 37, 0.8);
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition:
+        0.3s ease;
+}
+
+
+.nav-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+
+    border-color:
+        #60baff;
+
+    box-shadow:
+        0 0 18px
+        rgba(50, 140, 255, 0.3);
+}
+
+
+.nav-button.disabled {
+    opacity: 0.3;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   KROPKI
+========================================= */
+
+.page-dots {
+    display: flex;
+
+    gap: 7px;
+}
+
+
+.dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        #303a5d;
+
+    transition:
+        0.3s ease;
+}
+
+
+.dot.active {
+    width: 22px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #42baff,
+            #955cff
+        );
+
+    box-shadow:
+        0 0 10px
+        rgba(80, 140, 255, 0.6);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    margin-top: 50px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid
+        rgba(80, 110, 200, 0.12);
+
+    text-align: center;
+}
+
+
+.footer strong {
+    display: block;
+
+    color: #745cff;
+
+    font-size: 18px;
+
+    letter-spacing: 5px;
+
+    text-shadow:
+        0 0 15px
+        rgba(110, 70, 255, 0.5);
+}
+
+
+.footer span {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #53617f;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   ANIMACJA TYTUŁU
+========================================= */
+
+@keyframes titleGlow {
+
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 250% center;
+    }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .season-page {
+        width: 96%;
+    }
+
+    .binder {
+        padding: 12px;
+    }
+
+    .binder-page {
+        padding: 17px;
+    }
+
+    .card-grid {
+        gap: 10px;
+    }
+
+    .card-slot {
+        min-height: 120px;
+    }
+
+    .empty-card {
+        min-height: 105px;
+    }
+
+}
+
+
+/* =========================================
+   TELEFON
+========================================= */
+
+@media (max-width: 700px) {
+
+    .season-page {
+        width: 94%;
+
+        padding-top: 20px;
+    }
+
+
+    .season-header {
+        flex-direction: column;
+
+        padding-top: 55px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .back-button {
+        top: 0;
+        left: 0;
+    }
+
+
+    .season-title h1 {
+        font-size: 38px;
+
+        letter-spacing: 5px;
+    }
+
+
+    .season-title p {
+        font-size: 10px;
+
+        letter-spacing: 3px;
+    }
+
+
+    /* KLASTER */
+
+    .binder {
+        padding: 10px;
+
+        border-radius: 14px;
+    }
+
+
+    .binder-top {
+        font-size: 8px;
+
+        padding:
+            4px
+            3px
+            10px;
+    }
+
+
+    /* ROZKŁADÓWKA */
+
+    .spread {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+
+    /* ŚRODEK */
+
+    .binder-spine {
+        display: none;
+    }
+
+
+    /* STRONY */
+
+    .binder-page {
+        padding: 15px;
+
+        border-radius: 0;
+    }
+
+
+    .right-page {
+        border-top:
+            1px solid
+            rgba(100, 140, 255, 0.2);
+    }
+
+
+    .card-grid {
+        gap: 10px;
+
+        height: auto;
+    }
+
+
+    .card-slot {
+        min-height: 130px;
+    }
+
+
+    .empty-card {
+        min-height: 115px;
+    }
+
+
+    .empty-card span {
+        font-size: 23px;
+    }
+
+
+    /* NAWIGACJA */
+
+    .navigation {
+        gap: 12px;
+
+        justify-content:
+            space-between;
+    }
+
+
+    .nav-button {
+        padding:
+            10px
+            12px;
+
+        font-size: 8px;
+    }
+
+
+    .page-dots {
+        gap: 5px;
+    }
+
+
+    .dot {
+        width: 6px;
+        height: 6px;
+    }
+
+
+    .dot.active {
+        width: 17px;
+    }
+
+}
+
+
+/* =========================================
+   MAŁE TELEFONY
+========================================= */
+
+@media (max-width: 430px) {
+
+    .season-title h1 {
+        font-size: 30px;
+
+        letter-spacing: 4px;
+    }
+
+
+    .season-title p {
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .binder-page {
+        padding: 10px;
+    }
+
+
+    .card-grid {
+        gap: 7px;
+    }
+
+
+    .card-slot {
+        min-height: 100px;
+
+        padding: 4px;
+    }
+
+
+    .empty-card {
+        min-height: 88px;
+    }
+
+
+    .empty-card span {
+        font-size: 18px;
+    }
+
+
+    .slot-number {
+        top: 5px;
+        right: 6px;
+
+        font-size: 7px;
+    }
+
+
+    .page-header {
+        font-size: 8px;
+
+        margin-bottom: 12px;
+    }
+
+
+    .binder-bottom {
+        font-size: 7px;
+    }
+
+}
+
+
+/* =========================================
+   REDUKCJA ANIMACJI
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+
+        transition: none !important;
+    }
+
+}
