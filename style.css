@@ -304,46 +304,111 @@ footer {
         font-size: 11px;
     }
 }
+
+/* DISCORD - MAŁA IKONA */
+
 .discord-corner {
     position: fixed;
-    top: 20px;
-    right: 20px;
 
-    width: 38px;
-    height: 38px;
+    top: 22px;
+    right: 25px;
+
+    width: 32px;
+    height: 32px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background: transparent;
-    border: none;
-    border-radius: 10px;
-
     text-decoration: none;
+
     z-index: 100;
 
     transition: transform 0.25s ease;
 }
 
 .discord-icon {
-    width: 21px;
-    height: 21px;
+    width: 20px;
+    height: 20px;
 
     fill: #7289da;
 
     transition:
         transform 0.25s ease,
+        fill 0.25s ease,
         filter 0.25s ease;
 }
 
+/* NAPIS PO NAJECHANIU */
+
+.discord-tooltip {
+    position: absolute;
+
+    right: 42px;
+
+    white-space: nowrap;
+
+    padding: 8px 12px;
+
+    background: rgba(10, 9, 18, 0.95);
+
+    border: 1px solid rgba(88, 101, 242, 0.5);
+
+    color: white;
+
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    opacity: 0;
+
+    transform: translateX(8px);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* HOVER */
+
 .discord-corner:hover {
-    transform: scale(1.12);
+    transform: scale(1.15);
 }
 
 .discord-corner:hover .discord-icon {
     transform: scale(1.1);
+
     fill: #ffffff;
 
-    filter: drop-shadow(0 0 6px #7289da);
+    filter: drop-shadow(0 0 6px #5865f2);
+}
+
+.discord-corner:hover .discord-tooltip {
+    opacity: 1;
+
+    transform: translateX(0);
+}
+
+
+/* TELEFON */
+
+@media (max-width: 600px) {
+
+    .discord-corner {
+        top: 15px;
+        right: 15px;
+    }
+
+    .discord-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .discord-tooltip {
+        display: none;
+    }
+
 }
