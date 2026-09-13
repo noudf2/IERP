@@ -1,0 +1,554 @@
+```css
+/* ================================
+   RESET
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #070711;
+    color: white;
+    min-height: 100vh;
+}
+
+
+/* ================================
+   TŁO
+================================ */
+
+.background {
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(111, 65, 190, 0.22),
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 100% 100%,
+            rgba(45, 35, 100, 0.20),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #05050b 0%,
+            #0b0915 50%,
+            #05050b 100%
+        );
+
+    z-index: -2;
+}
+
+
+/* delikatne światło */
+
+.background::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.015) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.015) 1px,
+            transparent 1px
+        );
+
+    background-size: 50px 50px;
+
+    mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent
+    );
+}
+
+
+/* ================================
+   STRONA
+================================ */
+
+.albums-page {
+    width: min(1400px, 92%);
+    margin: auto;
+    padding: 45px 0 30px;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.page-header {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 55px;
+}
+
+
+/* POWRÓT */
+
+.back-button {
+    position: absolute;
+    left: 0;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #ffffff;
+    text-decoration: none;
+
+    padding: 11px 18px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+
+    background: rgba(255,255,255,0.04);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.back-button:hover {
+    background: rgba(135, 75, 220, 0.18);
+    border-color: rgba(170, 110, 255, 0.6);
+
+    transform:
+        translateY(-50%)
+        translateX(-3px);
+}
+
+
+/* TYTUŁ */
+
+.title-box {
+    text-align: center;
+}
+
+.title-box h1 {
+    font-size: clamp(32px, 5vw, 58px);
+
+    letter-spacing: 6px;
+
+    font-weight: 900;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #c9a7ff,
+        #ffffff
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.title-box p {
+    margin-top: 10px;
+
+    color: #aaa6b5;
+
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+/* LINIE */
+
+.title-line {
+    display: inline-block;
+
+    width: 70px;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #9b62e8
+    );
+
+    margin: 0 18px 15px;
+}
+
+.title-line:last-child {
+    background: linear-gradient(
+        90deg,
+        #9b62e8,
+        transparent
+    );
+}
+
+
+/* ================================
+   ALBUMY
+================================ */
+
+.albums-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 35px;
+}
+
+
+/* ================================
+   KARTA ALBUMU
+================================ */
+
+.album-card {
+    position: relative;
+
+    display: block;
+
+    text-decoration: none;
+    color: white;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.07),
+            rgba(255,255,255,0.025)
+        );
+
+    border: 1px solid rgba(255,255,255,0.10);
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,0.35);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.album-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(164, 102, 255, 0.7);
+
+    box-shadow:
+        0 20px 60px rgba(93, 42, 160, 0.25);
+}
+
+
+/* ================================
+   OKŁADKA
+================================ */
+
+.album-cover {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #342052,
+            #100b1b 65%,
+            #07070d
+        );
+}
+
+
+/* OBRAZEK */
+
+.album-cover img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
+}
+
+.album-card:hover .album-cover img {
+
+    transform: scale(1.06);
+
+    filter:
+        brightness(0.72)
+        saturate(1.15);
+}
+
+
+/* ================================
+   SOON
+================================ */
+
+.coming-soon {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(105, 60, 165, 0.35),
+            rgba(5,5,10,0.95)
+        );
+}
+
+.coming-soon span {
+
+    padding: 13px 27px;
+
+    border: 1px solid rgba(185, 130, 255, 0.45);
+
+    border-radius: 7px;
+
+    color: #c8a5ff;
+
+    font-size: 13px;
+
+    letter-spacing: 4px;
+
+    font-weight: 800;
+}
+
+
+/* ================================
+   HOVER OVERLAY
+================================ */
+
+.album-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(46, 20, 76, 0.8),
+            rgba(20, 10, 35, 0.25)
+        );
+
+    opacity: 0;
+
+    transition: opacity 0.35s ease;
+}
+
+.album-card:hover .album-overlay {
+    opacity: 1;
+}
+
+
+/* NAPIS */
+
+.open-text {
+
+    padding: 12px 22px;
+
+    border: 1px solid rgba(255,255,255,0.55);
+
+    border-radius: 7px;
+
+    background: rgba(0,0,0,0.35);
+
+    backdrop-filter: blur(5px);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    transform: translateY(12px);
+
+    transition: transform 0.35s ease;
+}
+
+.album-card:hover .open-text {
+    transform: translateY(0);
+}
+
+
+/* ================================
+   INFORMACJE
+================================ */
+
+.album-info {
+
+    padding: 22px 25px 25px;
+}
+
+.season-number {
+
+    display: block;
+
+    color: #a66aff;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 7px;
+}
+
+.album-info h2 {
+
+    font-size: 25px;
+
+    margin-bottom: 7px;
+
+    font-weight: 800;
+}
+
+.album-info p {
+
+    color: #918d9c;
+
+    font-size: 14px;
+}
+
+
+/* ================================
+   STOPKA
+================================ */
+
+.footer {
+
+    text-align: center;
+
+    margin-top: 70px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.08);
+}
+
+.footer span {
+
+    color: #a66aff;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+}
+
+.footer p {
+
+    margin-top: 7px;
+
+    color: #686572;
+
+    font-size: 12px;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 800px) {
+
+    .albums-container {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header {
+        padding-top: 60px;
+    }
+
+    .back-button {
+        top: 0;
+        left: 0;
+
+        transform: none;
+    }
+
+    .back-button:hover {
+        transform: translateX(-3px);
+    }
+
+    .title-line {
+        width: 35px;
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    .albums-page {
+        width: 94%;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .albums-page {
+        padding-top: 25px;
+    }
+
+    .title-box h1 {
+        letter-spacing: 3px;
+    }
+
+    .title-box p {
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+
+    .album-info {
+        padding: 18px;
+    }
+
+    .album-info h2 {
+        font-size: 21px;
+    }
+}
+```
