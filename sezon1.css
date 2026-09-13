@@ -1,720 +1,1561 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* =========================================
+   IERP — SEZON 01
+   KOLEKCJONERSKI KLASTER
+========================================= */
 
-    <title>Sezon 01 | IERP</title>
 
-    <link rel="stylesheet" href="./sezon1.css">
-</head>
+/* =========================================
+   RESET
+========================================= */
 
-<body>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <!-- TŁO -->
-    <div class="background"></div>
 
+html {
+    scroll-behavior: smooth;
+}
 
-    <!-- GŁÓWNA STRONA -->
-    <main class="season-page">
 
-        <!-- HEADER -->
-        <header class="season-header">
+body {
+    min-height: 100vh;
 
-            <a href="./albums.html" class="back-button">
-                ← Albumy
-            </a>
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
-            <div class="season-title">
+    color: #ffffff;
 
-                <span class="small-title">
-                    INAZUMA ELEVEN RP
-                </span>
+    background: #03050d;
 
-                <h1>SEZON 01</h1>
+    overflow-x: hidden;
+}
 
-                <p>POCZĄTEK LEGENDY</p>
 
-            </div>
+/* =========================================
+   TŁO
+========================================= */
 
-        </header>
+.background {
+    position: fixed;
 
+    inset: 0;
 
-        <!-- KLASTER -->
-        <section class="binder-wrapper">
+    z-index: -10;
 
-            <div class="binder" id="binder">
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0, 130, 255, 0.18),
+            transparent 30%
+        ),
 
+        radial-gradient(
+            circle at 85% 25%,
+            rgba(145, 40, 255, 0.20),
+            transparent 32%
+        ),
 
-                <!-- =====================================
-                     OKŁADKA
-                ====================================== -->
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(50, 60, 255, 0.12),
+            transparent 35%
+        ),
 
-                <div class="binder-cover" id="binderCover">
+        linear-gradient(
+            135deg,
+            #02040b,
+            #070a1c 45%,
+            #10051d
+        );
+}
 
-                    <div class="cover-overlay"></div>
 
-                    <div class="cover-content">
+.background::after {
+    content: "";
 
-                        <span class="cover-small">
-                            INAZUMA ELEVEN RP
-                        </span>
+    position: absolute;
 
-                        <div class="cover-line"></div>
+    inset: 0;
 
-                        <h2>SEZON 01</h2>
+    background-image:
+        linear-gradient(
+            rgba(80, 120, 255, 0.025) 1px,
+            transparent 1px
+        ),
 
-                        <p>
-                            POCZĄTEK LEGENDY
-                        </p>
+        linear-gradient(
+            90deg,
+            rgba(80, 120, 255, 0.025) 1px,
+            transparent 1px
+        );
 
-                        <div class="cover-line"></div>
+    background-size: 45px 45px;
+}
 
-                        <span class="cover-edition">
-                            KOLEKCJONERSKI ALBUM
-                        </span>
 
-                    </div>
+/* =========================================
+   STRONA
+========================================= */
 
-                </div>
+.season-page {
+    width: min(1500px, 94%);
 
+    margin: auto;
 
-                <!-- =====================================
-                     WNĘTRZE KLASTERA
-                ====================================== -->
+    padding:
+        35px
+        0
+        60px;
+}
 
-                <div class="binder-inside" id="binderInside">
 
-                    <!-- GÓRNA BELKA -->
-                    <div class="binder-top">
+/* =========================================
+   HEADER
+========================================= */
 
-                        <span>
-                            IERP • SEASON 01
-                        </span>
+.season-header {
+    position: relative;
 
-                        <span id="spreadNumber">
-                            OKŁADKA
-                        </span>
+    display: flex;
 
-                    </div>
+    justify-content: center;
+    align-items: center;
 
+    min-height: 115px;
 
-                    <!-- =================================
-                         STRONA 1
-                    ================================== -->
+    margin-bottom: 40px;
+}
 
-                    <section
-                        class="album-view page-one-view"
-                        id="pageOne"
-                    >
 
-                        <div class="album-page page-one">
+.back-button {
+    position: absolute;
 
-                            <div class="page-header">
+    left: 0;
+    top: 15px;
 
-                                <span>
-                                    SEZON 01
-                                </span>
+    padding:
+        12px
+        20px;
 
-                                <span>
-                                    01 — 09
-                                </span>
+    color: #ffffff;
 
-                            </div>
+    text-decoration: none;
 
+    font-size: 13px;
 
-                            <div class="single-grid">
+    font-weight: 800;
 
-                                <!-- 01 -->
-                                <div class="card-slot">
-                                    <span class="slot-number">01</span>
+    letter-spacing: 1px;
 
-                                    <div class="empty-card">
-                                        <span>01</span>
-                                    </div>
-                                </div>
+    border:
+        1px solid
+        rgba(75, 155, 255, 0.45);
 
-                                <!-- 02 -->
-                                <div class="card-slot">
-                                    <span class="slot-number">02</span>
+    border-radius: 7px;
 
-                                    <div class="empty-card">
-                                        <span>02</span>
-                                    </div>
-                                </div>
+    background:
+        rgba(8, 14, 38, 0.8);
 
-                                <!-- 03 -->
-                                <div class="card-slot">
-                                    <span class="slot-number">03</span>
+    transition:
+        0.3s ease;
+}
 
-                                    <div class="empty-card">
-                                        <span>03</span>
-                                    </div>
-                                </div>
 
-                                <!-- 04 -->
-                                <div class="card-slot">
-                                    <span class="slot-number">04</span>
+.back-button:hover {
+    transform: translateX(-5px);
 
-                                    <div class="empty-card">
-                                        <span>04</span>
-                                    </div>
-                                </div>
+    border-color: #55b9ff;
 
-                                <!-- 05 -->
-                                <div class="card-slot">
-                                    <span class="slot-number">05</span>
+    box-shadow:
+        0 0 15px
+        rgba(30, 150, 255, 0.45);
+}
 
-                                    <div class="empty-card">
-                                        <span>05</span>
-                                    </div>
-                                </div>
 
-                                <!-- 06 -->
-                                <div class="card-slot">
-                                    <span class="slot-number">06</span>
+.season-title {
+    text-align: center;
+}
 
-                                    <div class="empty-card">
-                                        <span>06</span>
-                                    </div>
-                                </div>
 
-                                <!-- 07 -->
-                                <div class="card-slot">
-                                    <span class="slot-number">07</span>
+.small-title {
+    display: block;
 
-                                    <div class="empty-card">
-                                        <span>07</span>
-                                    </div>
-                                </div>
+    margin-bottom: 6px;
 
-                                <!-- 08 -->
-                                <div class="card-slot">
-                                    <span class="slot-number">08</span>
+    color: #6e9dff;
 
-                                    <div class="empty-card">
-                                        <span>08</span>
-                                    </div>
-                                </div>
+    font-size: 11px;
 
-                                <!-- 09 -->
-                                <div class="card-slot">
-                                    <span class="slot-number">09</span>
+    font-weight: 800;
 
-                                    <div class="empty-card">
-                                        <span>09</span>
-                                    </div>
-                                </div>
+    letter-spacing: 4px;
+}
 
-                            </div>
 
-                        </div>
+.season-title h1 {
+    font-size:
+        clamp(
+            38px,
+            6vw,
+            70px
+        );
 
-                    </section>
+    font-weight: 950;
 
+    letter-spacing: 8px;
 
-                    <!-- =================================
-                         ROZKŁADÓWKA 2–3
-                    ================================== -->
+    background:
+        linear-gradient(
+            90deg,
+            #42baff,
+            #765dff,
+            #c35cff,
+            #42baff
+        );
 
-                    <section
-                        class="album-view spread-view"
-                        id="spread23"
-                    >
+    background-size: 250% auto;
 
-                        <div class="page-two">
+    -webkit-background-clip: text;
+    background-clip: text;
 
+    color: transparent;
 
-                            <!-- LEWA STRONA — 10–18 -->
+    animation:
+        titleGlow 6s linear infinite;
 
-                            <div class="binder-page left-page">
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(70, 140, 255, 0.3)
+        );
+}
 
-                                <div class="page-header">
 
-                                    <span>
-                                        SEZON 01
-                                    </span>
+.season-title p {
+    margin-top: 5px;
 
-                                    <span>
-                                        10 — 18
-                                    </span>
+    color: #a5afca;
 
-                                </div>
+    font-size: 12px;
 
+    font-weight: 700;
 
-                                <div class="card-grid">
+    letter-spacing: 4px;
+}
 
-                                    <!-- 10 -->
-                                    <div class="card-slot">
-                                        <span class="slot-number">10</span>
 
-                                        <div class="empty-card">
-                                            <span>10</span>
-                                        </div>
-                                    </div>
+/* =========================================
+   KLASTER WRAPPER
+========================================= */
 
-                                    <!-- 11 -->
-                                    <div class="card-slot">
-                                        <span class="slot-number">11</span>
+.binder-wrapper {
+    width: 100%;
 
-                                        <div class="empty-card">
-                                            <span>11</span>
-                                        </div>
-                                    </div>
+    perspective: 2200px;
+}
 
-                                    <!-- 12 -->
-                                    <div class="card-slot">
-                                        <span class="slot-number">12</span>
 
-                                        <div class="empty-card">
-                                            <span>12</span>
-                                        </div>
-                                    </div>
+/* =========================================
+   KLASTER
+========================================= */
 
-                                    <!-- 13 -->
-                                    <div class="card-slot">
-                                        <span class="slot-number">13</span>
+.binder {
+    position: relative;
 
-                                        <div class="empty-card">
-                                            <span>13</span>
-                                        </div>
-                                    </div>
+    width: 100%;
 
-                                    <!-- 14 -->
-                                    <div class="card-slot">
-                                        <span class="slot-number">14</span>
+    min-height: 720px;
 
-                                        <div class="empty-card">
-                                            <span>14</span>
-                                        </div>
-                                    </div>
+    border:
+        1px solid
+        rgba(100, 140, 255, 0.45);
 
-                                    <!-- 15 -->
-                                    <div class="card-slot">
-                                        <span class="slot-number">15</span>
+    border-radius: 20px;
 
-                                        <div class="empty-card">
-                                            <span>15</span>
-                                        </div>
-                                    </div>
+    background:
+        linear-gradient(
+            135deg,
+            #0b1530,
+            #080d20 45%,
+            #120b29
+        );
 
-                                    <!-- 16 -->
-                                    <div class="card-slot">
-                                        <span class="slot-number">16</span>
+    box-shadow:
+        0 35px 90px
+        rgba(0, 0, 0, 0.7),
 
-                                        <div class="empty-card">
-                                            <span>16</span>
-                                        </div>
-                                    </div>
+        0 0 55px
+        rgba(60, 80, 255, 0.13);
 
-                                    <!-- 17 -->
-                                    <div class="card-slot">
-                                        <span class="slot-number">17</span>
+    transform-style: preserve-3d;
+}
 
-                                        <div class="empty-card">
-                                            <span>17</span>
-                                        </div>
-                                    </div>
 
-                                    <!-- 18 -->
-                                    <div class="card-slot">
-                                        <span class="slot-number">18</span>
+/* =========================================
+   OKŁADKA
+========================================= */
 
-                                        <div class="empty-card">
-                                            <span>18</span>
-                                        </div>
-                                    </div>
+.binder-cover {
+    position: absolute;
 
-                                </div>
+    inset: 0;
 
-                            </div>
+    z-index: 20;
 
+    display: flex;
 
-                            <!-- GRZBIET -->
+    align-items: center;
+    justify-content: center;
 
-                            <div class="binder-spine">
+    overflow: hidden;
 
-                                <div class="spine-line"></div>
+    border-radius: 20px;
 
-                                <div class="spine-logo">
-                                    ⚡
-                                </div>
+    border:
+        1px solid
+        rgba(100, 160, 255, 0.55);
 
-                                <div class="spine-line"></div>
+    background:
+        url("./images/sezon1.jpg")
+        center center /
+        cover
+        no-repeat;
 
-                            </div>
+    transform-origin: left center;
 
+    transform-style: preserve-3d;
 
-                            <!-- PRAWA STRONA — 19–27 -->
+    transition:
+        transform 1.2s
+        cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        );
 
-                            <div class="binder-page right-page">
+    backface-visibility: hidden;
 
-                                <div class="page-header">
+    cursor: pointer;
 
-                                    <span>
-                                        SEZON 01
-                                    </span>
+    box-shadow:
+        inset
+        0 0 100px
+        rgba(0, 0, 0, 0.45),
 
-                                    <span>
-                                        19 — 27
-                                    </span>
+        0 20px 60px
+        rgba(0, 0, 0, 0.55);
+}
 
-                                </div>
 
+/* =========================================
+   PRZYCIEMNIENIE OKŁADKI
+========================================= */
 
-                                <div class="card-grid">
+.cover-overlay {
+    position: absolute;
 
-                                    <!-- 19 -->
-                                    <div class="card-slot">
-                                        <span class="slot-number">19</span>
+    inset: 0;
 
-                                        <div class="empty-card">
-                                            <span>19</span>
-                                        </div>
-                                    </div>
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.15),
+            rgba(2, 4, 15, 0.40)
+        );
 
-                                    <!-- 20 -->
-                                    <div class="card-slot">
-                                        <span class="slot-number">20</span>
+    pointer-events: none;
+}
 
-                                        <div class="empty-card">
-                                            <span>20</span>
-                                        </div>
-                                    </div>
 
-                                    <!-- 21 -->
-                                    <div class="card-slot">
-                                        <span class="slot-number">21</span>
+/* =========================================
+   OTWIERANIE
+========================================= */
 
-                                        <div class="empty-card">
-                                            <span>21</span>
-                                        </div>
-                                    </div>
+.binder.open .binder-cover {
+    transform:
+        rotateY(-155deg);
+}
 
-                                    <!-- 22 -->
-                                    <div class="card-slot">
-                                        <span class="slot-number">22</span>
 
-                                        <div class="empty-card">
-                                            <span>22</span>
-                                        </div>
-                                    </div>
+/* =========================================
+   ZAWARTOŚĆ OKŁADKI
+========================================= */
 
-                                    <!-- 23 -->
-                                    <div class="card-slot">
-                                        <span class="slot-number">23</span>
+.cover-content {
+    position: relative;
 
-                                        <div class="empty-card">
-                                            <span>23</span>
-                                        </div>
-                                    </div>
+    z-index: 2;
 
-                                    <!-- 24 -->
-                                    <div class="card-slot">
-                                        <span class="slot-number">24</span>
+    display: flex;
 
-                                        <div class="empty-card">
-                                            <span>24</span>
-                                        </div>
-                                    </div>
+    flex-direction: column;
 
-                                    <!-- 25 -->
-                                    <div class="card-slot">
-                                        <span class="slot-number">25</span>
+    align-items: center;
 
-                                        <div class="empty-card">
-                                            <span>25</span>
-                                        </div>
-                                    </div>
+    text-align: center;
 
-                                    <!-- 26 -->
-                                    <div class="card-slot">
-                                        <span class="slot-number">26</span>
+    padding: 40px;
 
-                                        <div class="empty-card">
-                                            <span>26</span>
-                                        </div>
-                                    </div>
+    text-shadow:
+        0 4px 20px
+        rgba(0, 0, 0, 0.8);
+}
 
-                                    <!-- 27 -->
-                                    <div class="card-slot">
-                                        <span class="slot-number">27</span>
 
-                                        <div class="empty-card">
-                                            <span>27</span>
-                                        </div>
-                                    </div>
+.cover-small {
+    color: #ffffff;
 
-                                </div>
+    font-size: 12px;
 
-                            </div>
+    font-weight: 900;
 
-                        </div>
+    letter-spacing: 5px;
+}
 
-                    </section>
 
+.cover-content h2 {
+    margin-top: 20px;
 
-                    <!-- DÓŁ -->
-                    <div class="binder-bottom">
+    font-size:
+        clamp(
+            45px,
+            7vw,
+            90px
+        );
 
-                        <span>
-                            IERP • COLLECTOR SERIES
-                        </span>
+    font-weight: 950;
 
-                        <span>
-                            SEZON 01
-                        </span>
+    letter-spacing: 10px;
 
-                    </div>
+    color: #ffffff;
 
-                </div>
+    text-shadow:
+        0 0 20px
+        rgba(70, 160, 255, 0.7),
 
-            </div>
+        0 4px 25px
+        rgba(0, 0, 0, 0.9);
+}
 
 
-            <!-- =====================================
-                 NAWIGACJA
-            ====================================== -->
+.cover-content p {
+    margin-top: 8px;
 
-            <div class="navigation">
+    color: #dce6ff;
 
-                <button
-                    class="nav-button"
-                    id="prevButton"
-                    type="button"
-                    disabled
-                >
-                    ← POPRZEDNIA
-                </button>
+    font-size: 14px;
 
+    font-weight: 800;
 
-                <div class="page-dots">
+    letter-spacing: 7px;
+}
 
-                    <span
-                        class="dot active"
-                        data-page="0"
-                    ></span>
 
-                    <span
-                        class="dot"
-                        data-page="1"
-                    ></span>
+.cover-line {
+    width: 180px;
 
-                    <span
-                        class="dot"
-                        data-page="2"
-                    ></span>
+    height: 2px;
 
-                </div>
+    margin: 25px 0;
 
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #55b9ff,
+            #955cff,
+            transparent
+        );
 
-                <button
-                    class="nav-button"
-                    id="nextButton"
-                    type="button"
-                >
-                    OTWÓRZ →
-                </button>
+    box-shadow:
+        0 0 10px
+        rgba(80, 150, 255, 0.6);
+}
 
-            </div>
 
-        </section>
+.cover-edition {
+    color: #d1dbff;
 
+    font-size: 9px;
 
-        <!-- FOOTER -->
-        <footer class="footer">
+    font-weight: 800;
 
-            <strong>IERP</strong>
+    letter-spacing: 4px;
+}
 
-            <span>
-                INAZUMA ELEVEN RP • SEZON 01
-            </span>
 
-        </footer>
+/* =========================================
+   WNĘTRZE
+========================================= */
 
-    </main>
+.binder-inside {
+    position: relative;
 
+    min-height: 718px;
 
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================== -->
+    padding:
+        18px
+        20px
+        22px;
 
-    <script>
+    border-radius: 20px;
 
-        const binder = document.getElementById("binder");
-        const binderCover = document.getElementById("binderCover");
+    background:
+        linear-gradient(
+            135deg,
+            #0b1530,
+            #080d20 45%,
+            #120b29
+        );
+}
 
-        const pageOne = document.getElementById("pageOne");
-        const spread23 = document.getElementById("spread23");
 
-        const prevButton = document.getElementById("prevButton");
-        const nextButton = document.getElementById("nextButton");
+/* =========================================
+   GÓRNA BELKA
+========================================= */
 
-        const spreadNumber = document.getElementById("spreadNumber");
+.binder-top {
+    display: flex;
 
-        const dots = document.querySelectorAll(".dot");
+    justify-content: space-between;
 
+    align-items: center;
 
-        /*
-            0 = OKŁADKA
-            1 = STRONA 1
-            2 = ROZKŁADÓWKA 2–3
-        */
+    padding:
+        5px
+        5px
+        15px;
 
-        let currentPage = 0;
+    color: #7183ad;
 
+    font-size: 10px;
 
-        function updateAlbum() {
+    font-weight: 800;
 
-            /* RESET */
+    letter-spacing: 3px;
+}
 
-            pageOne.classList.remove("active");
-            spread23.classList.remove("active");
 
-            binder.classList.remove("open");
-            binder.classList.remove("spread-active");
+#spreadNumber {
+    color: #8c6cff;
+}
 
 
-            /* OKŁADKA */
+/* =========================================
+   WIDOKI
+========================================= */
 
-            if (currentPage === 0) {
+.album-view {
+    display: none;
 
-                spreadNumber.textContent = "OKŁADKA";
+    min-height: 590px;
+}
 
-                prevButton.disabled = true;
 
-                nextButton.disabled = false;
+.album-view.active {
+    display: block;
 
-                nextButton.textContent = "OTWÓRZ →";
+    animation:
+        pageAppear
+        0.65s
+        ease
+        both;
+}
 
-            }
 
+/* =========================================
+   STRONA 1
+========================================= */
 
-            /* STRONA 1 */
+.page-one {
+    min-height: 590px;
 
-            if (currentPage === 1) {
+    padding:
+        25px
+        30px;
 
-                binder.classList.add("open");
+    border-radius: 12px;
 
-                pageOne.classList.add("active");
+    background:
+        linear-gradient(
+            135deg,
+            rgba(22, 34, 67, 0.96),
+            rgba(9, 17, 39, 0.98)
+        );
 
-                spreadNumber.textContent = "STRONA 01";
+    box-shadow:
+        inset
+        0 0 50px
+        rgba(0, 0, 0, 0.35);
+}
 
-                prevButton.disabled = false;
 
-                nextButton.disabled = false;
+.single-grid {
+    display: grid;
 
-                prevButton.textContent = "← OKŁADKA";
+    grid-template-columns:
+        repeat(3, 1fr);
 
-                nextButton.textContent = "DALEJ →";
+    grid-template-rows:
+        repeat(3, 1fr);
 
-            }
+    gap: 18px;
 
+    height: 500px;
+}
 
-            /* ROZKŁADÓWKA 2–3 */
 
-            if (currentPage === 2) {
+/* =========================================
+   ROZKŁADÓWKA 2–3
+========================================= */
 
-                binder.classList.add("open");
-                binder.classList.add("spread-active");
+.page-two {
+    display: grid;
 
-                spread23.classList.add("active");
+    grid-template-columns:
+        minmax(0, 1fr)
+        34px
+        minmax(0, 1fr);
 
-                spreadNumber.textContent = "ROZKŁADÓWKA 02–03";
+    min-height: 590px;
 
-                prevButton.disabled = false;
+    border-radius: 12px;
 
-                nextButton.disabled = true;
+    overflow: hidden;
 
-                prevButton.textContent = "← STRONA 01";
+    background:
+        linear-gradient(
+            90deg,
+            #101a35 0%,
+            #0d142b 48%,
+            #090f25 52%,
+            #101a35 100%
+        );
 
-                nextButton.textContent = "DALEJ →";
+    box-shadow:
+        inset
+        0 0 50px
+        rgba(0, 0, 0, 0.5);
+}
 
-            }
 
+.spread-view.active .page-two {
+    animation:
+        spreadOpen
+        0.8s
+        ease
+        both;
+}
 
-            /* KROPKI */
 
-            dots.forEach((dot, index) => {
+/* =========================================
+   NAGŁÓWKI
+========================================= */
 
-                dot.classList.toggle(
-                    "active",
-                    index === currentPage
-                );
+.page-header {
+    display: flex;
 
-            });
+    justify-content: space-between;
 
-        }
+    padding-bottom: 13px;
 
+    margin-bottom: 20px;
 
-        /* NASTĘPNA */
+    border-bottom:
+        1px solid
+        rgba(90, 140, 255, 0.18);
 
-        nextButton.addEventListener("click", () => {
+    color: #7fa8e8;
 
-            if (currentPage < 2) {
+    font-size: 10px;
 
-                currentPage++;
+    font-weight: 900;
 
-                updateAlbum();
+    letter-spacing: 2px;
+}
 
-            }
 
-        });
+/* =========================================
+   STRONY
+========================================= */
 
+.binder-page {
+    position: relative;
 
-        /* POPRZEDNIA */
+    padding: 25px;
 
-        prevButton.addEventListener("click", () => {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(22, 34, 67, 0.94),
+            rgba(9, 17, 39, 0.97)
+        );
+}
 
-            if (currentPage > 0) {
 
-                currentPage--;
+.left-page {
+    border-radius:
+        10px
+        0
+        0
+        10px;
 
-                updateAlbum();
+    box-shadow:
+        inset
+        -15px 0 30px
+        rgba(0, 0, 0, 0.15);
+}
 
-            }
 
-        });
+.right-page {
+    border-radius:
+        0
+        10px
+        10px
+        0;
 
+    box-shadow:
+        inset
+        15px 0 30px
+        rgba(0, 0, 0, 0.15);
+}
 
-        /* KROPKI */
 
-        dots.forEach((dot) => {
+/* =========================================
+   SIATKA KART
+========================================= */
 
-            dot.addEventListener("click", () => {
+.card-grid {
+    display: grid;
 
-                const page =
-                    Number(dot.dataset.page);
+    grid-template-columns:
+        repeat(3, 1fr);
 
-                currentPage = page;
+    grid-template-rows:
+        repeat(3, 1fr);
 
-                updateAlbum();
+    gap: 17px;
 
-            });
+    height: 500px;
+}
 
-        });
 
+/* =========================================
+   SLOT
+========================================= */
 
-        /* KLIKNIĘCIE W OKŁADKĘ */
+.card-slot {
+    position: relative;
 
-        binderCover.addEventListener("click", () => {
+    min-width: 0;
 
-            if (currentPage === 0) {
+    padding: 7px;
 
-                currentPage = 1;
+    border:
+        1px solid
+        rgba(100, 145, 230, 0.22);
 
-                updateAlbum();
+    border-radius: 10px;
 
-            }
+    background:
+        rgba(4, 8, 22, 0.5);
 
-        });
+    box-shadow:
+        inset
+        0 0 18px
+        rgba(0, 0, 0, 0.3);
 
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
 
-        /* START */
 
-        updateAlbum();
+.card-slot:hover {
+    transform:
+        translateY(-5px)
+        scale(1.015);
 
-    </script>
+    border-color:
+        rgba(100, 170, 255, 0.65);
 
-</body>
-</html>
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.35),
+
+        0 0 20px
+        rgba(60, 120, 255, 0.14);
+}
+
+
+/* =========================================
+   NUMER
+========================================= */
+
+.slot-number {
+    position: absolute;
+
+    top: 8px;
+    right: 9px;
+
+    z-index: 5;
+
+    color: #63769f;
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   PUSTY SLOT
+========================================= */
+
+.empty-card {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 7px;
+
+    border:
+        1px solid
+        rgba(95, 130, 220, 0.18);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(80, 90, 200, 0.10),
+            transparent 65%
+        ),
+
+        linear-gradient(
+            145deg,
+            rgba(15, 24, 52, 0.85),
+            rgba(5, 9, 25, 0.95)
+        );
+}
+
+
+.empty-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 80px;
+    height: 80px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(80, 120, 255, 0.08);
+
+    filter: blur(22px);
+}
+
+
+.empty-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 8px;
+
+    border:
+        1px dashed
+        rgba(90, 130, 220, 0.12);
+
+    border-radius: 5px;
+}
+
+
+.empty-card span {
+    position: relative;
+
+    z-index: 2;
+
+    color:
+        rgba(105, 130, 190, 0.38);
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    transition:
+        0.3s ease;
+}
+
+
+.card-slot:hover .empty-card span {
+    color:
+        rgba(115, 170, 255, 0.8);
+
+    text-shadow:
+        0 0 15px
+        rgba(80, 150, 255, 0.5);
+}
+
+
+/* =========================================
+   GRZBIET
+========================================= */
+
+.binder-spine {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+            90deg,
+            #05091a,
+            #121b3c,
+            #05091a
+        );
+
+    box-shadow:
+        inset
+        0 0 15px
+        rgba(0, 0, 0, 0.8),
+
+        0 0 12px
+        rgba(0, 0, 0, 0.5);
+
+    z-index: 5;
+}
+
+
+.spine-line {
+    width: 2px;
+
+    height: 40%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #526eff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 8px
+        rgba(70, 120, 255, 0.5);
+}
+
+
+.spine-logo {
+    margin: 15px 0;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(100, 150, 255, 0.4);
+
+    border-radius: 50%;
+
+    color: #60baff;
+
+    background:
+        #070d22;
+
+    font-size: 18px;
+
+    box-shadow:
+        0 0 15px
+        rgba(50, 130, 255, 0.3);
+}
+
+
+/* =========================================
+   DÓŁ
+========================================= */
+
+.binder-bottom {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding:
+        14px
+        5px
+        0;
+
+    color: #53678f;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   NAWIGACJA
+========================================= */
+
+.navigation {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 35px;
+
+    margin-top: 30px;
+}
+
+
+.nav-button {
+    padding:
+        12px
+        22px;
+
+    color: #ffffff;
+
+    border:
+        1px solid
+        rgba(80, 140, 255, 0.4);
+
+    border-radius: 7px;
+
+    background:
+        rgba(9, 15, 37, 0.8);
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition:
+        0.3s ease;
+}
+
+
+.nav-button:hover:not(:disabled) {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        #60baff;
+
+    box-shadow:
+        0 0 18px
+        rgba(50, 140, 255, 0.3);
+}
+
+
+.nav-button:disabled {
+    opacity: 0.25;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   KROPKI
+========================================= */
+
+.page-dots {
+    display: flex;
+
+    gap: 8px;
+}
+
+
+.dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        #303a5d;
+
+    cursor: pointer;
+
+    transition:
+        0.3s ease;
+}
+
+
+.dot.active {
+    width: 22px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #42baff,
+            #955cff
+        );
+
+    box-shadow:
+        0 0 10px
+        rgba(80, 140, 255, 0.6);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    margin-top: 50px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid
+        rgba(80, 110, 200, 0.12);
+
+    text-align: center;
+}
+
+
+.footer strong {
+    display: block;
+
+    color: #745cff;
+
+    font-size: 18px;
+
+    letter-spacing: 5px;
+
+    text-shadow:
+        0 0 15px
+        rgba(110, 70, 255, 0.5);
+}
+
+
+.footer span {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #53617f;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   ANIMACJE
+========================================= */
+
+@keyframes titleGlow {
+
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 250% center;
+    }
+
+}
+
+
+@keyframes pageAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.97)
+            translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+
+}
+
+
+@keyframes spreadOpen {
+
+    from {
+        opacity: 0;
+
+        transform:
+            perspective(1200px)
+            rotateY(-12deg)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            perspective(1200px)
+            rotateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .season-page {
+        width: 96%;
+    }
+
+
+    .binder {
+        min-height: 620px;
+    }
+
+
+    .binder-inside {
+        min-height: 618px;
+    }
+
+
+    .single-grid {
+        height: 430px;
+
+        gap: 12px;
+    }
+
+
+    .card-grid {
+        height: 420px;
+
+        gap: 10px;
+    }
+
+
+    .binder-page {
+        padding: 17px;
+    }
+
+}
+
+
+/* =========================================
+   TELEFON
+========================================= */
+
+@media (max-width: 700px) {
+
+    .season-page {
+        width: 94%;
+
+        padding-top: 20px;
+    }
+
+
+    .season-header {
+        flex-direction: column;
+
+        padding-top: 55px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .back-button {
+        top: 0;
+        left: 0;
+    }
+
+
+    .season-title h1 {
+        font-size: 36px;
+
+        letter-spacing: 5px;
+    }
+
+
+    .season-title p {
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+
+    /* KLASTER */
+
+    .binder {
+        min-height: 0;
+
+        border-radius: 14px;
+    }
+
+
+    .binder-inside {
+        min-height: 0;
+
+        padding: 10px;
+
+        border-radius: 14px;
+    }
+
+
+    /* OKŁADKA */
+
+    .binder-cover {
+        border-radius: 14px;
+    }
+
+
+    .cover-content {
+        padding: 20px;
+    }
+
+
+    .cover-content h2 {
+        font-size: 45px;
+
+        letter-spacing: 5px;
+    }
+
+
+    .cover-content p {
+        font-size: 9px;
+
+        letter-spacing: 4px;
+    }
+
+
+    /* BELKA */
+
+    .binder-top {
+        font-size: 7px;
+
+        padding:
+            4px
+            3px
+            10px;
+    }
+
+
+    /* STRONA 1 */
+
+    .page-one {
+        padding: 15px;
+
+        min-height: 500px;
+    }
+
+
+    .single-grid {
+        height: 420px;
+
+        gap: 9px;
+    }
+
+
+    /* ROZKŁADÓWKA */
+
+    .page-two {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+
+        min-height: 0;
+    }
+
+
+    .binder-spine {
+        display: none;
+    }
+
+
+    .binder-page {
+        padding: 15px;
+
+        border-radius: 0;
+    }
+
+
+    .right-page {
+        border-top:
+            1px solid
+            rgba(100, 140, 255, 0.2);
+    }
+
+
+    .card-grid {
+        height: 400px;
+
+        gap: 9px;
+    }
+
+
+    /* NAWIGACJA */
+
+    .navigation {
+        gap: 10px;
+
+        justify-content:
+            space-between;
+    }
+
+
+    .nav-button {
+        padding:
+            10px
+            12px;
+
+        font-size: 8px;
+    }
+
+}
+
+
+/* =========================================
+   MAŁE TELEFONY
+========================================= */
+
+@media (max-width: 430px) {
+
+    .season-title h1 {
+        font-size: 30px;
+
+        letter-spacing: 4px;
+    }
+
+
+    .season-title p {
+        font-size: 7px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .cover-content h2 {
+        font-size: 36px;
+    }
+
+
+    .cover-small {
+        font-size: 9px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .cover-edition {
+        font-size: 7px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .single-grid {
+        height: 340px;
+
+        gap: 6px;
+    }
+
+
+    .card-grid {
+        height: 330px;
+
+        gap: 6px;
+    }
+
+
+    .page-one {
+        padding: 10px;
+    }
+
+
+    .binder-page {
+        padding: 10px;
+    }
+
+
+    .empty-card span {
+        font-size: 18px;
+    }
+
+
+    .slot-number {
+        top: 5px;
+        right: 6px;
+
+        font-size: 7px;
+    }
+
+
+    .page-header {
+        font-size: 8px;
+
+        margin-bottom: 12px;
+    }
+
+
+    .binder-bottom {
+        font-size: 7px;
+    }
+
+}
+
+
+/* =========================================
+   REDUKCJA ANIMACJI
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation: none !important;
+
+        transition: none !important;
+
+    }
+
+}
