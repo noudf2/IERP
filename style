@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #05050b;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    overflow-x: hidden;
+}
+
+/* TŁO */
+
+.background {
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 50% 25%, rgba(105, 55, 190, 0.25), transparent 35%),
+        radial-gradient(circle at 20% 80%, rgba(30, 80, 180, 0.15), transparent 30%),
+        #05050b;
+
+    z-index: -2;
+}
+
+.background::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+
+    background-size: 50px 50px;
+
+    mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+/* GŁÓWNY KONTENER */
+
+.container {
+    width: min(900px, 92%);
+    min-height: 100vh;
+
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px 0;
+}
+
+/* LOGO */
+
+.logo {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.lightning {
+    font-size: 75px;
+
+    color: #f3d36a;
+
+    text-shadow:
+        0 0 10px #f3d36a,
+        0 0 30px rgba(243, 211, 106, 0.7),
+        0 0 70px rgba(125, 60, 255, 0.6);
+
+    animation: lightning 2s infinite ease-in-out;
+}
+
+.logo h1 {
+    font-size: clamp(28px, 6vw, 58px);
+    font-weight: 900;
+    letter-spacing: 5px;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #c9a8ff,
+        #f3d36a
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo h2 {
+    margin-top: 5px;
+
+    font-size: 42px;
+    letter-spacing: 15px;
+
+    color: #f3d36a;
+
+    text-shadow: 0 0 20px rgba(243, 211, 106, 0.6);
+}
+
+.logo p {
+    margin-top: 18px;
+
+    color: #9d9da9;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* PRZYCISKI */
+
+.buttons {
+    width: 100%;
+    max-width: 650px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.menu-button {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    width: 100%;
+    min-height: 90px;
+
+    padding: 18px 28px;
+
+    text-decoration: none;
+    color: white;
+
+    background: rgba(17, 16, 29, 0.88);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    clip-path: polygon(
+        0 0,
+        calc(100% - 18px) 0,
+        100% 18px,
+        100% 100%,
+        18px 100%,
+        0 calc(100% - 18px)
+    );
+
+    transition: 0.3s ease;
+
+    overflow: hidden;
+}
+
+.menu-button::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 5px;
+    height: 100%;
+
+    background: #7d3cff;
+
+    box-shadow: 0 0 20px #7d3cff;
+}
+
+.menu-button span {
+    font-size: 32px;
+
+    width: 55px;
+    text-align: center;
+}
+
+.menu-button strong {
+    display: block;
+
+    font-size: 19px;
+    letter-spacing: 2px;
+}
+
+.menu-button small {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #858592;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+/* HOVER */
+
+.menu-button:hover {
+    transform: translateX(10px);
+
+    background: rgba(35, 29, 60, 0.95);
+
+    border-color: rgba(180, 140, 255, 0.5);
+
+    box-shadow:
+        0 0 25px rgba(125, 60, 255, 0.2),
+        inset 0 0 25px rgba(125, 60, 255, 0.08);
+}
+
+.menu-button:hover::after {
+    content: "";
+
+    position: absolute;
+    width: 120px;
+    height: 120px;
+
+    right: -40px;
+    top: -40px;
+
+    background: rgba(125, 60, 255, 0.18);
+
+    transform: rotate(45deg);
+}
+
+/* KOLORY */
+
+.discord::before {
+    background: #5865f2;
+    box-shadow: 0 0 20px #5865f2;
+}
+
+.albums::before {
+    background: #a855f7;
+    box-shadow: 0 0 20px #a855f7;
+}
+
+.league::before {
+    background: #f3d36a;
+    box-shadow: 0 0 20px #f3d36a;
+}
+
+/* STOPKA */
+
+footer {
+    margin-top: 50px;
+
+    color: #555563;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+/* ANIMACJA */
+
+@keyframes lightning {
+
+    0%, 100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+        filter: brightness(1.35);
+    }
+}
+
+/* TELEFON */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 40px 0;
+    }
+
+    .logo {
+        margin-bottom: 40px;
+    }
+
+    .lightning {
+        font-size: 55px;
+    }
+
+    .logo h2 {
+        font-size: 32px;
+    }
+
+    .menu-button {
+        min-height: 80px;
+        padding: 15px 20px;
+    }
+
+    .menu-button strong {
+        font-size: 16px;
+    }
+
+    .menu-button small {
+        font-size: 11px;
+    }
+}
