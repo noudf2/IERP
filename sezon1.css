@@ -4,7 +4,9 @@
 ========================================= */
 
 
-/* RESET */
+/* =========================================
+   RESET
+========================================= */
 
 * {
     margin: 0;
@@ -73,8 +75,6 @@ body {
 }
 
 
-/* SIATKA */
-
 .background::after {
     content: "";
 
@@ -99,7 +99,7 @@ body {
 
 
 /* =========================================
-   GŁÓWNA STRONA
+   STRONA
 ========================================= */
 
 .season-page {
@@ -110,7 +110,7 @@ body {
     padding:
         35px
         0
-        50px;
+        60px;
 }
 
 
@@ -123,16 +123,14 @@ body {
 
     display: flex;
 
-    align-items: center;
     justify-content: center;
-
-    margin-bottom: 40px;
+    align-items: center;
 
     min-height: 115px;
+
+    margin-bottom: 40px;
 }
 
-
-/* POWRÓT */
 
 .back-button {
     position: absolute;
@@ -178,8 +176,6 @@ body {
         rgba(30, 150, 255, 0.45);
 }
 
-
-/* TYTUŁ */
 
 .season-title {
     text-align: center;
@@ -245,11 +241,22 @@ body {
 
     color: #a5afca;
 
-    font-size: 13px;
+    font-size: 12px;
 
     font-weight: 700;
 
-    letter-spacing: 5px;
+    letter-spacing: 4px;
+}
+
+
+/* =========================================
+   KLASTER WRAPPER
+========================================= */
+
+.binder-wrapper {
+    perspective: 2200px;
+
+    width: 100%;
 }
 
 
@@ -262,14 +269,11 @@ body {
 
     width: 100%;
 
-    padding:
-        18px
-        20px
-        22px;
+    min-height: 700px;
 
     border:
         1px solid
-        rgba(100, 140, 255, 0.4);
+        rgba(100, 140, 255, 0.45);
 
     border-radius: 20px;
 
@@ -282,21 +286,263 @@ body {
         );
 
     box-shadow:
+        0 35px 90px
+        rgba(0, 0, 0, 0.7),
 
-        0 30px 70px
-        rgba(0, 0, 0, 0.65),
+        0 0 55px
+        rgba(60, 80, 255, 0.13);
 
-        0 0 45px
-        rgba(60, 80, 255, 0.12),
+    transform-style: preserve-3d;
 
-        inset
-        0 0 50px
-        rgba(80, 70, 255, 0.05);
+    transition:
+        transform 1s cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        );
 }
 
 
 /* =========================================
-   GÓRA
+   OKŁADKA
+========================================= */
+
+.binder-cover {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 20;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    border:
+        1px solid
+        rgba(100, 160, 255, 0.5);
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(50, 120, 255, 0.16),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #07132e,
+            #09091d 50%,
+            #190829
+        );
+
+    transform-origin: left center;
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform 1.15s cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        );
+
+    backface-visibility: hidden;
+
+    box-shadow:
+        inset
+        0 0 80px
+        rgba(30, 70, 180, 0.15);
+}
+
+
+/* OTWARCIE KLASTRA */
+
+.binder.open .binder-cover {
+    transform:
+        rotateY(-155deg);
+}
+
+
+/* ŚWIATŁO */
+
+.cover-light {
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(50, 120, 255, 0.12);
+
+    filter: blur(80px);
+}
+
+
+/* ZAWARTOŚĆ OKŁADKI */
+
+.cover-content {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+.cover-small {
+    color: #719cff;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 5px;
+}
+
+
+.cover-logo {
+    width: 110px;
+    height: 110px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 35px 0 25px;
+
+    border:
+        1px solid
+        rgba(100, 180, 255, 0.5);
+
+    border-radius: 50%;
+
+    color: #61c0ff;
+
+    background:
+        rgba(4, 10, 30, 0.8);
+
+    font-size: 55px;
+
+    box-shadow:
+        0 0 35px
+        rgba(50, 150, 255, 0.25);
+}
+
+
+.cover-content h2 {
+    font-size:
+        clamp(
+            45px,
+            7vw,
+            90px
+        );
+
+    font-weight: 950;
+
+    letter-spacing: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #3ebaff,
+            #765dff,
+            #c55cff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.cover-content p {
+    margin-top: 8px;
+
+    color: #9aa9d0;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: 7px;
+}
+
+
+.cover-line {
+    width: 160px;
+
+    height: 1px;
+
+    margin: 30px 0 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #55b9ff,
+            #955cff,
+            transparent
+        );
+}
+
+
+.cover-edition {
+    color: #6478a8;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+}
+
+
+/* =========================================
+   WNĘTRZE
+========================================= */
+
+.binder-inside {
+    position: relative;
+
+    min-height: 700px;
+
+    padding:
+        18px
+        20px
+        22px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b1530,
+            #080d20 45%,
+            #120b29
+        );
+}
+
+
+/* =========================================
+   GÓRNA BELKA
 ========================================= */
 
 .binder-top {
@@ -321,24 +567,89 @@ body {
 }
 
 
-.page-counter {
+#spreadNumber {
     color: #8c6cff;
 }
 
 
 /* =========================================
-   ROZKŁADÓWKA
+   STRONY
 ========================================= */
 
-.spread {
+.album-page {
+    position: relative;
+
+    min-height: 590px;
+
+    display: none;
+}
+
+
+.album-page.active {
+    display: block;
+
+    animation:
+        pageAppear
+        0.7s
+        ease
+        both;
+}
+
+
+/* =========================================
+   STRONA 1
+========================================= */
+
+.page-one {
+    padding:
+        20px
+        30px
+        25px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(22, 34, 67, 0.96),
+            rgba(9, 17, 39, 0.98)
+        );
+
+    box-shadow:
+        inset
+        0 0 50px
+        rgba(0, 0, 0, 0.35);
+}
+
+
+.single-grid {
     display: grid;
 
     grid-template-columns:
+        repeat(3, 1fr);
+
+    grid-template-rows:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+    height: 510px;
+}
+
+
+/* =========================================
+   STRONA 2
+========================================= */
+
+.page-two {
+    display: none;
+
+    grid-template-columns:
         minmax(0, 1fr)
-        28px
+        32px
         minmax(0, 1fr);
 
-    min-height: 650px;
+    min-height: 590px;
 
     border-radius: 12px;
 
@@ -354,8 +665,47 @@ body {
         );
 
     box-shadow:
-        inset 0 0 50px
+        inset
+        0 0 50px
         rgba(0, 0, 0, 0.5);
+}
+
+
+.page-two.active {
+    display: grid;
+
+    animation:
+        spreadOpen
+        0.8s
+        ease
+        both;
+}
+
+
+/* =========================================
+   NAGŁÓWEK STRONY
+========================================= */
+
+.page-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-bottom: 13px;
+
+    margin-bottom: 20px;
+
+    border-bottom:
+        1px solid
+        rgba(90, 140, 255, 0.18);
+
+    color: #7fa8e8;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
 }
 
 
@@ -407,33 +757,6 @@ body {
 
 
 /* =========================================
-   NAGŁÓWEK STRONY
-========================================= */
-
-.page-header {
-    display: flex;
-
-    justify-content: space-between;
-
-    padding-bottom: 13px;
-
-    margin-bottom: 20px;
-
-    border-bottom:
-        1px solid
-        rgba(90, 140, 255, 0.18);
-
-    color: #7fa8e8;
-
-    font-size: 10px;
-
-    font-weight: 900;
-
-    letter-spacing: 2px;
-}
-
-
-/* =========================================
    SIATKA KART
 ========================================= */
 
@@ -448,7 +771,7 @@ body {
 
     gap: 17px;
 
-    height: calc(100% - 45px);
+    height: 500px;
 }
 
 
@@ -459,22 +782,23 @@ body {
 .card-slot {
     position: relative;
 
-    min-height: 155px;
+    min-width: 0;
 
     padding: 7px;
 
     border:
         1px solid
-        rgba(100, 145, 230, 0.2);
+        rgba(100, 145, 230, 0.22);
 
-    border-radius: 9px;
+    border-radius: 10px;
 
     background:
-        rgba(4, 8, 22, 0.45);
+        rgba(4, 8, 22, 0.5);
 
     box-shadow:
-        inset 0 0 18px
-        rgba(0, 0, 0, 0.25);
+        inset
+        0 0 18px
+        rgba(0, 0, 0, 0.3);
 
     transition:
         transform 0.3s ease,
@@ -484,22 +808,25 @@ body {
 
 
 .card-slot:hover {
-    transform: translateY(-4px);
+    transform:
+        translateY(-5px)
+        scale(1.015);
 
     border-color:
-        rgba(100, 170, 255, 0.6);
+        rgba(100, 170, 255, 0.65);
 
     box-shadow:
-
-        0 8px 20px
+        0 10px 25px
         rgba(0, 0, 0, 0.35),
 
-        0 0 18px
-        rgba(60, 120, 255, 0.12);
+        0 0 20px
+        rgba(60, 120, 255, 0.14);
 }
 
 
-/* NUMER SLOTU */
+/* =========================================
+   NUMER
+========================================= */
 
 .slot-number {
     position: absolute;
@@ -507,7 +834,7 @@ body {
     top: 8px;
     right: 9px;
 
-    z-index: 3;
+    z-index: 5;
 
     color: #63769f;
 
@@ -529,8 +856,6 @@ body {
     width: 100%;
     height: 100%;
 
-    min-height: 140px;
-
     display: flex;
 
     align-items: center;
@@ -538,7 +863,7 @@ body {
 
     overflow: hidden;
 
-    border-radius: 6px;
+    border-radius: 7px;
 
     border:
         1px solid
@@ -547,7 +872,7 @@ body {
     background:
         radial-gradient(
             circle at center,
-            rgba(80, 90, 200, 0.09),
+            rgba(80, 90, 200, 0.10),
             transparent 65%
         ),
 
@@ -559,33 +884,48 @@ body {
 }
 
 
-/* ŚWIATŁO W KARCIE */
-
 .empty-card::before {
     content: "";
 
     position: absolute;
 
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
 
     border-radius: 50%;
 
     background:
         rgba(80, 120, 255, 0.08);
 
-    filter: blur(20px);
+    filter: blur(22px);
+}
+
+
+.empty-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 8px;
+
+    border:
+        1px dashed
+        rgba(90, 130, 220, 0.12);
+
+    border-radius: 5px;
 }
 
 
 .empty-card span {
     position: relative;
 
-    color: rgba(105, 130, 190, 0.4);
+    z-index: 2;
 
-    font-size: 30px;
+    color: rgba(105, 130, 190, 0.38);
 
-    font-weight: 200;
+    font-size: 25px;
+
+    font-weight: 800;
 
     transition:
         0.3s ease;
@@ -593,7 +933,8 @@ body {
 
 
 .card-slot:hover .empty-card span {
-    color: rgba(115, 170, 255, 0.7);
+    color:
+        rgba(115, 170, 255, 0.8);
 
     text-shadow:
         0 0 15px
@@ -685,7 +1026,7 @@ body {
 
 
 /* =========================================
-   DÓŁ KLASTRA
+   DÓŁ
 ========================================= */
 
 .binder-bottom {
@@ -725,8 +1066,6 @@ body {
 }
 
 
-/* PRZYCISKI */
-
 .nav-button {
     padding:
         12px
@@ -757,7 +1096,8 @@ body {
 
 
 .nav-button:hover:not(:disabled) {
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 
     border-color:
         #60baff;
@@ -768,8 +1108,8 @@ body {
 }
 
 
-.nav-button.disabled {
-    opacity: 0.3;
+.nav-button:disabled {
+    opacity: 0.25;
 
     cursor: not-allowed;
 }
@@ -782,7 +1122,7 @@ body {
 .page-dots {
     display: flex;
 
-    gap: 7px;
+    gap: 8px;
 }
 
 
@@ -794,6 +1134,8 @@ body {
 
     background:
         #303a5d;
+
+    cursor: pointer;
 
     transition:
         0.3s ease;
@@ -864,7 +1206,7 @@ body {
 
 
 /* =========================================
-   ANIMACJA TYTUŁU
+   ANIMACJE
 ========================================= */
 
 @keyframes titleGlow {
@@ -880,6 +1222,50 @@ body {
 }
 
 
+@keyframes pageAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.97)
+            translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+
+}
+
+
+@keyframes spreadOpen {
+
+    from {
+        opacity: 0;
+
+        transform:
+            perspective(1200px)
+            rotateY(-12deg)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            perspective(1200px)
+            rotateY(0)
+            scale(1);
+    }
+
+}
+
+
 /* =========================================
    TABLET
 ========================================= */
@@ -890,24 +1276,33 @@ body {
         width: 96%;
     }
 
+
     .binder {
-        padding: 12px;
+        min-height: 600px;
     }
 
-    .binder-page {
-        padding: 17px;
+
+    .binder-inside {
+        min-height: 600px;
     }
+
+
+    .single-grid {
+        height: 430px;
+
+        gap: 12px;
+    }
+
 
     .card-grid {
+        height: 420px;
+
         gap: 10px;
     }
 
-    .card-slot {
-        min-height: 120px;
-    }
 
-    .empty-card {
-        min-height: 105px;
+    .binder-page {
+        padding: 17px;
     }
 
 }
@@ -942,30 +1337,72 @@ body {
 
 
     .season-title h1 {
-        font-size: 38px;
+        font-size: 36px;
 
         letter-spacing: 5px;
     }
 
 
     .season-title p {
-        font-size: 10px;
+        font-size: 8px;
 
-        letter-spacing: 3px;
+        letter-spacing: 2px;
     }
 
 
     /* KLASTER */
 
     .binder {
+        min-height: 0;
+
+        border-radius: 14px;
+    }
+
+
+    .binder-inside {
+        min-height: 0;
+
         padding: 10px;
 
         border-radius: 14px;
     }
 
 
+    /* OKŁADKA */
+
+    .binder-cover {
+        border-radius: 14px;
+    }
+
+
+    .cover-logo {
+        width: 80px;
+        height: 80px;
+
+        font-size: 40px;
+
+        margin: 25px 0 18px;
+    }
+
+
+    .cover-content h2 {
+        font-size: 45px;
+
+        letter-spacing: 5px;
+    }
+
+
+    .cover-content p {
+        font-size: 9px;
+
+        letter-spacing: 4px;
+    }
+
+
+    /* BELKA */
+
     .binder-top {
-        font-size: 8px;
+        font-size: 7px;
 
         padding:
             4px
@@ -974,23 +1411,37 @@ body {
     }
 
 
-    /* ROZKŁADÓWKA */
+    /* STRONA 1 */
 
-    .spread {
-        grid-template-columns: 1fr;
+    .page-one {
+        padding: 15px;
 
-        gap: 0;
+        min-height: 500px;
     }
 
 
-    /* ŚRODEK */
+    .single-grid {
+        height: 420px;
+
+        gap: 9px;
+    }
+
+
+    /* STRONA 2 */
+
+    .page-two {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+
+        min-height: 0;
+    }
+
 
     .binder-spine {
         display: none;
     }
 
-
-    /* STRONY */
 
     .binder-page {
         padding: 15px;
@@ -1007,31 +1458,16 @@ body {
 
 
     .card-grid {
-        gap: 10px;
+        height: 400px;
 
-        height: auto;
-    }
-
-
-    .card-slot {
-        min-height: 130px;
-    }
-
-
-    .empty-card {
-        min-height: 115px;
-    }
-
-
-    .empty-card span {
-        font-size: 23px;
+        gap: 9px;
     }
 
 
     /* NAWIGACJA */
 
     .navigation {
-        gap: 12px;
+        gap: 10px;
 
         justify-content:
             space-between;
@@ -1044,22 +1480,6 @@ body {
             12px;
 
         font-size: 8px;
-    }
-
-
-    .page-dots {
-        gap: 5px;
-    }
-
-
-    .dot {
-        width: 6px;
-        height: 6px;
-    }
-
-
-    .dot.active {
-        width: 17px;
     }
 
 }
@@ -1079,31 +1499,46 @@ body {
 
 
     .season-title p {
-        font-size: 8px;
+        font-size: 7px;
 
         letter-spacing: 2px;
     }
 
 
-    .binder-page {
-        padding: 10px;
+    .cover-content h2 {
+        font-size: 36px;
+    }
+
+
+    .cover-logo {
+        width: 65px;
+        height: 65px;
+
+        font-size: 32px;
+    }
+
+
+    .single-grid {
+        height: 340px;
+
+        gap: 6px;
     }
 
 
     .card-grid {
-        gap: 7px;
+        height: 330px;
+
+        gap: 6px;
     }
 
 
-    .card-slot {
-        min-height: 100px;
-
-        padding: 4px;
+    .page-one {
+        padding: 10px;
     }
 
 
-    .empty-card {
-        min-height: 88px;
+    .binder-page {
+        padding: 10px;
     }
 
 
@@ -1143,9 +1578,11 @@ body {
     *,
     *::before,
     *::after {
+
         animation: none !important;
 
         transition: none !important;
+
     }
 
 }
