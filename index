@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inazuma Eleven RP</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <main class="container">
+
+        <div class="logo">
+            <div class="lightning">⚡</div>
+
+            <h1>INAZUMA ELEVEN</h1>
+            <h2>RP</h2>
+
+            <p>Świat futbolu, rywalizacji i niezwykłych technik.</p>
+        </div>
+
+        <div class="buttons">
+
+            <a href="#" class="menu-button discord">
+                <span>💬</span>
+                <div>
+                    <strong>DISCORD</strong>
+                    <small>Dołącz do naszej społeczności</small>
+                </div>
+            </a>
+
+            <a href="#" class="menu-button albums">
+                <span>🖼️</span>
+                <div>
+                    <strong>ALBUMY</strong>
+                    <small>Zobacz karty zawodników</small>
+                </div>
+            </a>
+
+            <a href="#" class="menu-button league">
+                <span>🏆</span>
+                <div>
+                    <strong>LIGA</strong>
+                    <small>Sprawdź rozgrywki</small>
+                </div>
+            </a>
+
+        </div>
+
+        <footer>
+            <p>© 2026 Inazuma Eleven RP</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
